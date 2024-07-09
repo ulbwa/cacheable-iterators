@@ -26,7 +26,7 @@ iterators to be reused multiple times with cached values, reducing the need for 
 You can install this package via pip:
 
 ```shell
-python3 -m pip install cacheable-iterators
+python3 -m pip install cached-iterators
 ```
 
 ## Usage
