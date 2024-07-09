@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "cached-iterators"
-version = "1.0.2"
+version = "1.0.3"
 description = "A Python library providing cacheable iterator wrappers for both synchronous and asynchronous iterators."
 authors = ["ульба <ulbwa@icloud.com>"]
 readme = "README.md"

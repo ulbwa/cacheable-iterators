@@ -108,7 +108,7 @@ def cacheable_iterator(__func: Callable[P, Iterator[T]], /) -> Callable[P, Itera
     return inner
 
 
-# __all__ = (
-#     "CacheableIteratorWrapper",
-#     "cacheable_iterator",
-# )
+__all__ = (
+    "CacheableIteratorWrapper",
+    "cacheable_iterator",
+)

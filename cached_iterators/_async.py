@@ -147,8 +147,8 @@ def cacheable_async_iterator(
     return inner
 
 
-# __all__ = (
-#     "AsyncIteratorWrapper",
-#     "CacheableAsyncIteratorWrapper",
-#     "cacheable_async_iterator",
-# )
+__all__ = (
+    "AsyncIteratorWrapper",
+    "CacheableAsyncIteratorWrapper",
+    "cacheable_async_iterator",
+)
