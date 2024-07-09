@@ -1,4 +1,4 @@
-from cacheable_iterators import CacheableIteratorWrapper, cacheable_iterator
+from cached_iterators import CacheableIteratorWrapper, cacheable_iterator
 
 
 def generate_numbers():

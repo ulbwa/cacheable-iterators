@@ -1,4 +1,4 @@
-# cacheable-iterators
+# cached-iterators
 
 A Python library providing cacheable iterator wrappers for both synchronous and asynchronous iterators. This allows 
 iterators to be reused multiple times with cached values, reducing the need for recomputations.
@@ -38,14 +38,16 @@ You can use the synchronous iterator wrapper in two ways: by decorating a functi
 1. **Decorating a function**:
 
 ```python
-from cacheable_iterators import cacheable_iterator
+from cached_iterators import cacheable_iterator
 from typing import Iterator
+
 
 @cacheable_iterator
 def generate_numbers() -> Iterator[int]:
-    for i in range(5):
-        print(f"Generating {i}")
-        yield i
+  for i in range(5):
+    print(f"Generating {i}")
+    yield i
+
 
 # Create a cacheable iterator using the decorated function
 cached_iter = generate_numbers()
@@ -53,24 +55,26 @@ cached_iter = generate_numbers()
 # First iteration (values will be generated and cached)
 print("First iteration:")
 for num in cached_iter:
-    print(num)
+  print(num)
 
 # Second iteration (values will be retrieved from cache)
 print("Second iteration:")
 for num in cached_iter:
-    print(num)
+  print(num)
 ```
 
 2. **Wrapping an existing iterator**:
 
 ```python
-from cacheable_iterators import CacheableIteratorWrapper
+from cached_iterators import CacheableIteratorWrapper
 from typing import Iterator
 
+
 def generate_numbers() -> Iterator[int]:
-    for i in range(5):
-        print(f"Generating {i}")
-        yield i
+  for i in range(5):
+    print(f"Generating {i}")
+    yield i
+
 
 # Create a cacheable iterator by wrapping an existing iterator instance
 iterator = generate_numbers()
@@ -79,12 +83,12 @@ cached_iter = CacheableIteratorWrapper(iterator)
 # First iteration (values will be generated and cached)
 print("First iteration:")
 for num in cached_iter:
-    print(num)
+  print(num)
 
 # Second iteration (values will be retrieved from cache)
 print("Second iteration:")
 for num in cached_iter:
-    print(num)
+  print(num)
 ```
 
 #### Output
@@ -118,29 +122,33 @@ iterator or by directly wrapping an asynchronous iterator instance.
 
 ```python
 import asyncio
-from cacheable_iterators import cacheable_async_iterator
+from cached_iterators import cacheable_async_iterator
 from typing import AsyncIterator
+
 
 @cacheable_async_iterator
 async def async_generate_numbers() -> AsyncIterator[int]:
-    for i in range(5):
-        print(f"Generating {i}")
-        yield i
-        await asyncio.sleep(0)  # Simulate async work
+  for i in range(5):
+    print(f"Generating {i}")
+    yield i
+    await asyncio.sleep(0)  # Simulate async work
+
 
 # Create a cacheable async iterator using the decorated function
 cached_iter = async_generate_numbers()
 
-async def main():
-    # First iteration (values will be generated and cached)
-    print("First iteration:")
-    async for num in cached_iter:
-        print(num)
 
-    # Second iteration (values will be retrieved from cache)
-    print("Second iteration:")
-    async for num in cached_iter:
-        print(num)
+async def main():
+  # First iteration (values will be generated and cached)
+  print("First iteration:")
+  async for num in cached_iter:
+    print(num)
+
+  # Second iteration (values will be retrieved from cache)
+  print("Second iteration:")
+  async for num in cached_iter:
+    print(num)
+
 
 # Run the example
 asyncio.run(main())
@@ -150,29 +158,33 @@ asyncio.run(main())
 
 ```python
 import asyncio
-from cacheable_iterators import CacheableAsyncIteratorWrapper
+from cached_iterators import CacheableAsyncIteratorWrapper
 from typing import AsyncIterator
 
+
 async def async_generate_numbers() -> AsyncIterator[int]:
-    for i in range(5):
-        print(f"Generating {i}")
-        yield i
-        await asyncio.sleep(0)  # Simulate async work
+  for i in range(5):
+    print(f"Generating {i}")
+    yield i
+    await asyncio.sleep(0)  # Simulate async work
+
 
 # Create a cacheable async iterator by wrapping an existing async iterator instance
 iterator = async_generate_numbers()
 cached_iter = CacheableAsyncIteratorWrapper(iterator)
 
-async def main():
-    # First iteration (values will be generated and cached)
-    print("First iteration:")
-    async for num in cached_iter:
-        print(num)
 
-    # Second iteration (values will be retrieved from cache)
-    print("Second iteration:")
-    async for num in cached_iter:
-        print(num)
+async def main():
+  # First iteration (values will be generated and cached)
+  print("First iteration:")
+  async for num in cached_iter:
+    print(num)
+
+  # Second iteration (values will be retrieved from cache)
+  print("Second iteration:")
+  async for num in cached_iter:
+    print(num)
+
 
 # Run the example
 asyncio.run(main())

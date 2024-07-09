@@ -2,7 +2,7 @@ import asyncio
 
 import pytest
 
-from cacheable_iterators import CacheableAsyncIteratorWrapper, cacheable_async_iterator
+from cached_iterators import CacheableAsyncIteratorWrapper, cacheable_async_iterator
 
 
 async def async_generate_numbers():
